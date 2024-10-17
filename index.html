@@ -9,15 +9,24 @@
 <body>
     <header>
         <h1>DOG IMAGE GALLERY</h1>
-        <input type="text" id="breed-filter" placeholder="Filter by breed...">
+        
+        <label for="breed-select">Breed Names:</label>
+        <select id="breed-select">
+            <option value="">Select a breed</option>
+        </select>
+
+        <input type="text" id="breed-filter" placeholder="Filter by breed name...">
         <button id="load-more">Load More Dogs</button>
     </header>
+
     <main id="gallery">
 
     </main>
+
     <footer>
         <p>Dog images from Dog CEO API</p>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="./index.js"></script>
 </body>
 </html>

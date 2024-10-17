@@ -31,3 +31,8 @@ footer {
     margin-top: 25px;
     font-size: 15px;
 }
+
+.liked {
+    background-color: red;
+    color:#f8edf2;
+}
