@@ -5,7 +5,7 @@ const breedSelect = document.getElementById('breed-select'); // Breed dropdown f
 let dogImages = [];
 let allBreeds = [];
 
-// Fetch random dog images
+
 function fetchDogImages() {
     fetch('https://dog.ceo/api/breeds/image/random/5')
         .then(response => response.json())
@@ -16,7 +16,7 @@ function fetchDogImages() {
         .catch(error => console.error('Error fetching dog images:', error));
 }
 
-// Fetch all breeds and populate the dropdown
+
 function fetchBreeds() {
     fetch('https://dog.ceo/api/breeds/list/all')
         .then(response => response.json())
@@ -27,7 +27,7 @@ function fetchBreeds() {
         .catch(error => console.error('Error fetching breeds:', error));
 }
 
-// Populate breed select dropdown
+
 function populateBreedSelect(breeds) {
     breedSelect.innerHTML = '<option value="">Select a breed</option>';
     breeds.forEach(breed => {
@@ -38,7 +38,7 @@ function populateBreedSelect(breeds) {
     });
 }
 
-// Fetch and display images based on selected breed
+
 function fetchBreedImages(breed) {
     fetch(`https://dog.ceo/api/breed/${breed}/images/random/5`)
         .then(response => response.json())
@@ -49,7 +49,7 @@ function fetchBreedImages(breed) {
         .catch(error => console.error('Error fetching breed images:', error));
 }
 
-// Display dog images
+
 function displayDogs(images) {
     gallery.innerHTML = '';
     images.forEach(image => {
@@ -80,26 +80,26 @@ function displayDogs(images) {
     });
 }
 
-// Event listener for loading more random dog images
+
 loadMoreButton.addEventListener('click', fetchDogImages);
 
-// Event listener for text breed filter
+
 breedFilter.addEventListener('keyup', () => {
     const filterText = breedFilter.value.toLowerCase();
     const filteredImages = dogImages.filter(img => img.toLowerCase().includes(filterText));
     displayDogs(filteredImages);
 });
 
-// Event listener for breed dropdown filter
+
 breedSelect.addEventListener('change', (event) => {
     const selectedBreed = event.target.value;
     if (selectedBreed) {
         fetchBreedImages(selectedBreed);
     } else {
-        fetchDogImages(); // Show random images if no breed is selected
+        fetchDogImages();
     }
 });
 
-// Initial load
+
 fetchDogImages();
 fetchBreeds();
